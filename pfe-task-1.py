@@ -23,8 +23,8 @@ while True:
         if sil_num in rehber_dict.keys():
             rehber_dict.pop(sil_num)
             
-        elif sil_num in rehber_dict.values():
-            rehber_dict.pop(get_key(sil_num)) 
+        elif int(sil_num) in rehber_dict.values():
+            rehber_dict.pop(get_key(int(sil_num))) 
         else:
             print("Girdiğiniz isim veya numara rehberde bulunmamaktadır.")
     
