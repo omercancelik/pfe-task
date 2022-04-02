@@ -128,7 +128,6 @@ def kategori_func(x):
             sepetim_Urunler.append(list(kategori_dict.keys())[0])
             print("Sepete ekleme başarılı.")
             sepetim_Toplam.append((list(kategori_dict.values())[0]))
-            continue
         elif urun_secim == "2":
             sepetim_Urunler.append(list(kategori_dict.keys())[1])
             print("Sepete ekleme başarılı.")
