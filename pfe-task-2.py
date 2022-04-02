@@ -5,12 +5,12 @@ sepetim_Urunler = []
 sepetim_Toplam = []
 
 kategori_Elektronik = {"Telefon": 900,"Laptop": 1500,"Kulaklık": 200,"Oyun Konsolu": 500,"Televizyon": 2500}
-kategori_Giysi = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
-kategori_Mobilya = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
-kategori_Gıda = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
-kategori_Oyuncak = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
+kategori_Giysi = {"Tişört": 100,"Pantolon": 250,"Sweatshirt": 300,"Etek": 100,"Mont": 650}
+kategori_Mobilya = {"Koltuk": 1000,"Sandalye": 500,"Masa": 2000,"Yatak": 4500,"Dolap": 1500}
+kategori_Gıda = {"Et": 125,"Yağ": 200,"Un": 50,"Balık": 100,"Çikolata": 25}
+kategori_Enstruman = {"Gitar": 3500,"Piano": 25000,"Keman": 4000,"Bateri": 7500,"Akordeon": 15000}
 
-kategori_liste = [kategori_Elektronik,kategori_Giysi,kategori_Mobilya,kategori_Gıda,kategori_Oyuncak]
+kategori_liste = [kategori_Elektronik,kategori_Giysi,kategori_Mobilya,kategori_Gıda,kategori_Enstruman]
 
 
 def giris_func():   
