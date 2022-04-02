@@ -151,9 +151,4 @@ def kategori_func(x):
             kategori_func(x)
     return sepetim_Toplam
 
-
-
-
-
-
 giris_func()
