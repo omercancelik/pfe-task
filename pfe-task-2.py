@@ -1,10 +1,10 @@
-kullanici_Adi = "omercanclk"    
-kullanici_Sifre = "metamorfoz"
+kullanici_Adi = "a"    
+kullanici_Sifre = "b"
 siparislerim = []
-sepetim_urunler = []
+sepetim_Urunler = []
+sepetim_Toplam = []
 
-
-kategori_Elektronik = {"1-Telefon": 900,"2-Laptop": 1500,"3-Kulaklık": 200,"4-Oyun Konsolu": 500,"5-Televizyon": 2500}
+kategori_Elektronik = {"Telefon": 900,"Laptop": 1500,"Kulaklık": 200,"Oyun Konsolu": 500,"Televizyon": 2500}
 kategori_Giysi = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
 kategori_Mobilya = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
 kategori_Gıda = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
@@ -12,28 +12,6 @@ kategori_Oyuncak = {"a": 1,"b": 2,"c": 3,"d": 4,"e": 5}
 
 kategori_liste = [kategori_Elektronik,kategori_Giysi,kategori_Mobilya,kategori_Gıda,kategori_Oyuncak]
 
-def kategori_func(x):
-    kategori_dict = kategori_liste[x]
-    a += 1
-    for i in kategori_dict:
-        print(-a, i,"-->", kategori_dict[i])
-    print("-6 Geri Dön")
-    urun_secim = input("Ürün Seçimi Yapınız.")
-    if urun_secim == "1":
-        pass
-    elif urun_secim == "2":
-        pass
-    elif urun_secim == "3":
-        pass
-    elif urun_secim == "4":
-        pass
-    elif urun_secim == "5":
-        pass
-    elif urun_secim == "6":
-        kategoriler_func
-    else:
-        print("Yanlış giriş yaptınız")
-        kategori_func()
 
 def giris_func():   
     while True:
@@ -45,14 +23,14 @@ def giris_func():
                 anasayfa_func()
             else:
                 print("Şifre hatalı. Lütfen tekrar giriniz!")  
-                anasayfa_func()             
+                giris_func()            
         else:
             print("Kullanıcı adı hatalı. Lütfen tekrar giriniz!")
             continue
 
 # Ekran 2
 def anasayfa_func():
-    karar_Anasayfa = input("-1 Siparişlerim\n-2 Sepetim\n-3 Alışveriş\n-4 Kullanıcı girişine geri dön\n")
+    karar_Anasayfa = input("-1 Siparişlerim\n-2 Sepetim\n-3 Alışveriş\n-4 Kullanıcı girişine geri dön\n-5 Çıkış Yap\n")
 
     if karar_Anasayfa == "1":
         siparislerim_func()
@@ -62,6 +40,8 @@ def anasayfa_func():
         kategoriler_func()
     elif karar_Anasayfa == "4":
         giris_func()
+    elif karar_Anasayfa == "5":
+        exit()
     else:
         print("Yanlış giriş yaptınız")
         anasayfa_func()
@@ -72,6 +52,7 @@ def siparislerim_func():
     if karar_Siparislerim == "1":
         for i in siparislerim:
             print(i)
+        siparislerim_func()
     elif karar_Siparislerim == "2":
         anasayfa_func()
     else:
@@ -81,10 +62,31 @@ def siparislerim_func():
 # Ekran 2.2
 def sepetim_func():
     karar_Sepetim = input("-1 Sepettekileri listele\n-2 Siparişi onayla\n-3 Geri Dön\n")
+    b = 0
+    
     if karar_Sepetim == "1":
-        pass
+        for i in range(len(sepetim_Urunler)):
+            print("-",i+1, sepetim_Urunler[i],"-->",sepetim_Toplam[i])
+        for i in sepetim_Toplam:
+            b += int(i)
+        print("Sepetin Toplam Tutarı:", b)
+        karar_Sepetim2 = input("-1 Çıkartılacak Ürünü Seçiniz\n-2 Geri Dön\n")
+        if karar_Sepetim2 == "1":
+            for i in range(len(sepetim_Urunler)):
+                print("-",i+1,sepetim_Urunler[i],"-->",sepetim_Toplam[i])
+            karar_cıkarma = int(input("Hangi Ürünü Çıkarmak İstiyorsunuz?"))
+            sepetim_Urunler.pop(karar_cıkarma-1)
+            sepetim_Toplam.pop(karar_cıkarma-1)
+            print("Ürün Çıkartılmıştır.")
+            sepetim_func()
+        elif karar_Sepetim2 == "2":
+            sepetim_func()
     elif karar_Sepetim == "2":
-        pass
+        for i in sepetim_Urunler:
+            siparislerim.append(i)
+        print("Satın alma başarılı!")
+        sepetim_Urunler.clear()
+        sepetim_func()
     elif karar_Sepetim == "3":
         anasayfa_func()
     else:
@@ -110,6 +112,46 @@ def kategoriler_func():
     else:
         print("Yanlış giriş yaptınız")
         kategoriler_func()
+
+# Ekran 2.3.1,2,3,4,5
+
+def kategori_func(x):
+    kategori_dict = kategori_liste[x]
+    a = 1
+    for i in kategori_dict:
+        print(-a, i,"-->", kategori_dict[i])
+        a += 1
+    print("-6 Geri Dön")
+    while True:
+        urun_secim = input("Ürün Seçimi Yapınız.")
+        if urun_secim == "1":
+            sepetim_Urunler.append(list(kategori_dict.keys())[0])
+            print("Sepete ekleme başarılı.")
+            sepetim_Toplam.append((list(kategori_dict.values())[0]))
+            continue
+        elif urun_secim == "2":
+            sepetim_Urunler.append(list(kategori_dict.keys())[1])
+            print("Sepete ekleme başarılı.")
+            sepetim_Toplam.append((list(kategori_dict.values())[1]))
+        elif urun_secim == "3":
+            sepetim_Urunler.append(list(kategori_dict.keys())[2])
+            print("Sepete ekleme başarılı.")
+            sepetim_Toplam.append((list(kategori_dict.values())[2]))
+        elif urun_secim == "4":
+            sepetim_Urunler.append(list(kategori_dict.keys())[3])
+            print("Sepete ekleme başarılı.")
+            sepetim_Toplam.append((list(kategori_dict.values())[3]))
+        elif urun_secim == "5":
+            sepetim_Urunler.append(list(kategori_dict.keys())[4])
+            print("Sepete ekleme başarılı.")
+            sepetim_Toplam.append((list(kategori_dict.values())[4]))
+        elif urun_secim == "6":
+            kategoriler_func()
+        else:
+            print("Yanlış giriş yaptınız")
+            kategori_func(x)
+    return sepetim_Toplam
+
 
 
 
