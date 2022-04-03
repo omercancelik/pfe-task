@@ -1,5 +1,5 @@
-kullanici_Adi = "a"    
-kullanici_Sifre = "b"
+kullanici_Adi = "admin"    
+kullanici_Sifre = "password"
 siparislerim = []
 sepetim_Urunler = []
 sepetim_Toplam = []
@@ -95,7 +95,7 @@ def sepetim_func():
 
 # Ekran 2.3
 def kategoriler_func():
-    karar_Kategoriler = input("Kategoriler:\n-1 Kategori1\n-2 Kategori2\n-3 Kategori3\n-4 Kategori4\n-5 Kategori5\n-6 Geri Dön\n")
+    karar_Kategoriler = input("Kategoriler:\n-1 Elektronik\n-2 Giysi\n-3 Mobilya\n-4 Gıda\n-5 Enstruman\n-6 Geri Dön\n")
 
     if karar_Kategoriler == "1":
         kategori_func(0)
